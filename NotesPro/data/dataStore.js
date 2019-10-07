@@ -11,7 +11,7 @@ class DataStore{
         return await this.database.insert(note);
     }
 
-    async findNoteById(id){
+    async getNoteById(id){
         return await this.database.findOne({_id: id});
     }
 
@@ -19,8 +19,8 @@ class DataStore{
         return await this.database.update({_id: id}, note, {});
     }
 
-    async getNotesSortedByTitle(){
-        return await this.database.find({}).sort({Title: 1});
+    async getNotes(){
+        return await this.database.find({});
     }
 }
 
