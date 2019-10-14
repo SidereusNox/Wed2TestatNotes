@@ -1,2 +1,20 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<form action="create">
+    <input type="submit" value="Create new note">
+</form>
+<form action="sortByFinishDate" class="sort-by-toolbar">
+    <input type="submit" value="By finish date" {{#ifEquals sortedBy "finishDate"}}class="selected"{{/ifEquals}}>
+</form>
+<form action="sortByCreateDate" class="sort-by-toolbar">
+    <input type="submit" value="By created date" {{#ifEquals sortedBy "createdDate"}}class="selected"{{/ifEquals}}>
+</form>
+<form action="sortByImportance" class="sort-by-toolbar">
+    <input type="submit" value="By importance" {{#ifEquals sortedBy "importance"}}class="selected"{{/ifEquals}}>
+</form>
+{{#each notes}}
+<h1>{{titel}}</h1>
+<p>{{description}}</p>
+<p>{{importance}}</p>
+<p>{{created}}</p>
+<p>{{dueDate}}</p>
+{{/each}}

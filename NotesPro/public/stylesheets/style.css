@@ -1,7 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.sort-by-toolbar > input{
+}
+
+.sort-by-toolbar input:hover{
+  background-color: #00adff54;
+}
+
+.sort-by-toolbar > .selected{
+  background-color: #00adff54;
 }

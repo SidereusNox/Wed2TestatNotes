@@ -2,12 +2,12 @@ const dataStore = require("../data/dataStore");
 
 function areNotesEqual(firstNote, secondNote) {
   return (
-    firstNote.Title === secondNote.Title &&
-    firstNote.Description === secondNote.Description &&
-    firstNote.Importance === secondNote.Importance &&
-    firstNote.Date === secondNote.Date &&
-    firstNote.Finished === secondNote.Finished &&
-    firstNote.Deleted === secondNote.Deleted
+    firstNote.title === secondNote.title &&
+    firstNote.description === secondNote.description &&
+    firstNote.importance === secondNote.importance &&
+    firstNote.dueDate === secondNote.dueDate &&
+    firstNote.finished === secondNote.finished &&
+    firstNote.deleted === secondNote.deleted
   );
 }
 
@@ -15,12 +15,13 @@ async function insertNotes(amount) {
   let insertedNotes = [];
   for (i = 1; i < amount + 1; i++) {
     const note = {
-      Title: "Title Note " + i,
-      Description: "Description " + i,
-      Importance: (i % 5) + 1,
-      DueDate: new Date(2000 + i, (i % 12) + 1, (i % 28) + 1, 0, 0, 0, 0),
-      Finished: false,
-      Deleted: false
+      title: "Title Note " + i,
+      description: "Description " + i,
+      importance: (i % 5) + 1,
+      dueDate: new Date(2000 + i, (i % 12) + 1, (i % 28) + 1, 0, 0, 0, 0),
+      created: new Date(2000 - i, (i % 12) + 1, (i % 28) + 1, 0, 0, 0, 0),
+      finished: false,
+      deleted: false
     };
     const noteModel = await dataStore.insertNote(note);
     note._id = noteModel._id;
@@ -81,8 +82,8 @@ async function clearDataBase() {
   async function ModifyTest() {
     await clearDataBase();
     const notes = await insertNotes(1);
-    notes[0].Description = "Changed description!";
-    notes[0].Finished = true;
+    notes[0].description = "Changed description!";
+    notes[0].finished = true;
 
     await dataStore.updateNoteById(notes[0]._id, notes[0]);
 
