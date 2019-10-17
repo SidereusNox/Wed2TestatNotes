@@ -11,6 +11,19 @@ function areNotesEqual(firstNote, secondNote) {
   );
 }
 
+function createDate(id){
+  const year = 2000+id;
+  let month = id%12 +1;
+  if(month < 10){
+    month = "0" + month;
+  }
+  let day = id%28 +1;
+  if(day < 10){
+    day = "0" + day;
+  }
+  return year + "-" + month + "-" + day;
+}
+
 async function insertNotes(amount) {
   let insertedNotes = [];
   for (i = 1; i < amount + 1; i++) {
@@ -18,7 +31,7 @@ async function insertNotes(amount) {
       title: "Title Note " + i,
       description: "Description " + i,
       importance: (i % 5) + 1,
-      dueDate: new Date(2000 + i, (i % 12) + 1, (i % 28) + 1, 0, 0, 0, 0),
+      dueDate: createDate(i),
       created: new Date(2000 - i, (i % 12) + 1, (i % 28) + 1, 0, 0, 0, 0),
       finished: false,
       deleted: false
@@ -38,7 +51,7 @@ async function clearDataBase() {
   await dataStore.database.remove({}, { multi: true });
 }
 
-/////////////////////////////////////////////TESTS//////////////////////////////////////
+///////////////////////////////////////TESTS//////////////////////////////////////
 //InsertTest
 (async function () {
   async function InsertTest() {

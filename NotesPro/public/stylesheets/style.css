@@ -7,17 +7,19 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
-.sort-by-toolbar > input{
-}
-
-.sort-by-toolbar input:hover{
+button {
+  padding: 5px;
   background-color: #00adff54;
 }
 
-.sort-by-toolbar > .selected{
-  background-color: #00adff54;
+#sort-by-toolbar > a{
+  display: inline;
+}
+
+#sort-by-toolbar > a > button:hover{
+  background-color: #00B7FF;
+}
+
+#sort-by-toolbar > a > .selected{
+  background-color: #00B7FF;
 }

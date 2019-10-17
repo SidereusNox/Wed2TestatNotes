@@ -3,10 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', noteController.renderOverviewScreen);
-router.get('/sortByFinishDate', noteController.sortByFinishDate);
-router.get('/sortByCreateDate', noteController.sortByCreateDate);
-router.get('/sortByImportance', noteController.sortByImportance);
 router.get('/create', noteController.renderCreateNoteScreen);
-router.get('/modify', noteController.renderModifyNoteScreen);
+router.post('/save/:id', noteController.saveChanges);
+router.post('/save', noteController.saveChanges);
+router.get('/edit/:id', noteController.renderEditNoteScreen);
 
 module.exports = router;

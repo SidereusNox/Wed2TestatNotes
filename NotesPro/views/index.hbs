@@ -1,20 +1,23 @@
 <h1>{{title}}</h1>
-<form action="create">
-    <input type="submit" value="Create new note">
-</form>
-<form action="sortByFinishDate" class="sort-by-toolbar">
-    <input type="submit" value="By finish date" {{#ifEquals sortedBy "finishDate"}}class="selected"{{/ifEquals}}>
-</form>
-<form action="sortByCreateDate" class="sort-by-toolbar">
-    <input type="submit" value="By created date" {{#ifEquals sortedBy "createdDate"}}class="selected"{{/ifEquals}}>
-</form>
-<form action="sortByImportance" class="sort-by-toolbar">
-    <input type="submit" value="By importance" {{#ifEquals sortedBy "importance"}}class="selected"{{/ifEquals}}>
-</form>
+
+<a href="/create"><button>Create</button></a>
+
+<div id="sort-by-toolbar">
+    <a {{#ifEquals sortBy "finish"}}class="selected" href="/?sortBy=finish&order={{order}}"
+        {{else}}href="/?sortBy=finish&order=ascending"{{/ifEquals}}><button>By finish date</button></a>
+    <a {{#ifEquals sortBy "created"}}class="selected" href="/?sortBy=created&order={{order}}"
+        {{else}}href="/?sortBy=created&order=ascending"{{/ifEquals}}><button>By created date</button></a>
+    <a {{#ifEquals sortBy "importance"}}class="selected" href="/?sortBy=importance&order={{order}}"
+        {{else}}href="/?sortBy=importance&order=ascending"{{/ifEquals}}><button>By importance</button></a>
+</div>
+
 {{#each notes}}
-<h1>{{titel}}</h1>
-<p>{{description}}</p>
-<p>{{importance}}</p>
-<p>{{created}}</p>
-<p>{{dueDate}}</p>
+<span class="note-row">        
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    <p>{{importance}}</p>
+    <p>{{created}}</p>
+    <p>{{dueDate}}</p>
+    <a href="/edit/{{_id}}"><button>Edit</button></a>
+</span>
 {{/each}}
