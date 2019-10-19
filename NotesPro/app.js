@@ -6,6 +6,7 @@ var session = require('express-session');
 var handlebars = require('hbs');
 var handlebarHelpers = require('./utils/handlebarHelpers');
 var router = require('./routes/router');
+var sessionController = require('./controllers/sessionController');
 
 var app = express();
 
@@ -17,10 +18,11 @@ handlebarHelpers.registerHelpers(handlebars);
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(session({secret: 'skjdfiewfpiufi', resave: false, saveUninitialized: false}));
+app.use(session({secret: 'spoke.keen.contract.zoo', resave: false, saveUninitialized: false}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(sessionController.updateSession)
 app.use('/', router);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

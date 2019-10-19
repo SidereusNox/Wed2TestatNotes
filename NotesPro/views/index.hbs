@@ -1,8 +1,6 @@
-<h1>{{title}}</h1>
-
 <a href="/create"><button>Create</button></a>
 
-<div id="sort-by-toolbar">
+<div class="toolbar">
     <a {{#ifEquals sortBy "finish"}}class="selected" href="/?sortBy=finish&order={{order}}"
         {{else}}href="/?sortBy=finish&order=ascending"{{/ifEquals}}><button>By finish date</button></a>
     <a {{#ifEquals sortBy "created"}}class="selected" href="/?sortBy=created&order={{order}}"
@@ -11,6 +9,8 @@
         {{else}}href="/?sortBy=importance&order=ascending"{{/ifEquals}}><button>By importance</button></a>
 </div>
 
+<a {{#ifEquals theme "dark"}}href="/?theme=light"{{else}}href="/?theme=dark"{{/ifEquals}}><button>Theme</button></a>
+<a {{#if showFinished}}href="/?showFinished=false"{{else}}href="/?showFinished=true"{{/if}}><button>Show finished</button></a>
 {{#each notes}}
 <span class="note-row">        
     <h1>{{title}}</h1>

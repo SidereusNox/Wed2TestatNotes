@@ -3,8 +3,10 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href={{#ifEquals theme "dark"}}'/stylesheets/darkTheme.css'{{else}}'../public/stylesheets/lightTheme.css'{{/ifEquals}}' />
   </head>
   <body>
+    <h1>{{title}}</h1>
     {{{body}}}
   </body>
 </html>
