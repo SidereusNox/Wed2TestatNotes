@@ -11,7 +11,7 @@ function updateTheme(req) {
     theme = req.session.theme;
   }
   if (!isValidTheme(theme)) {
-    req.session.sortBy = "light";
+    req.session.theme = "light";
   }
 }
 
