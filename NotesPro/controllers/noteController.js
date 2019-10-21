@@ -48,7 +48,7 @@ module.exports.saveChanges = async function(req, res, next) {
   note.dueDate = req.body.dueDate;
   note.importance = req.body.importance;
   note.finished = req.body.finished ? true : false;
-  note.created = Date.now();
+  note.created = new Date();
   const id = req.params.id;
   if (id) {
     await dataStore.updateNoteById(id, note);
