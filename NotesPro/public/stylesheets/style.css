@@ -4,22 +4,47 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1em "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-button {
-  padding: 5px;
-  background-color: #00adff54;
+.note-row > h1 {
+  font-size: 1em;
+  font-weight: normal;
 }
 
-#sort-by-toolbar > a{
-  display: inline;
+.note-row{
+  display: grid;
+  grid-template-columns: 10% 60% 20% 10%;
+  grid-template-rows: auto 1fr;
 }
 
-#sort-by-toolbar > a > button:hover{
-  background-color: #00B7FF;
+.due-date{
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-#sort-by-toolbar > a > .selected{
-  background-color: #00B7FF;
+.title{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.importance{
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  text-align: right;
+}
+
+.finished{
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.description {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.edit-input{
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
 }

@@ -13,11 +13,11 @@
 <a {{#if showFinished}}href="/?showFinished=false"{{else}}href="/?showFinished=true"{{/if}}><button>Show finished</button></a>
 {{#each notes}}
 <span class="note-row">        
-    <h1>{{title}}</h1>
-    <p>{{description}}</p>
-    <p>{{importance}}</p>
-    <p>{{created}}</p>
-    <p>{{dueDate}}</p>
-    <a href="/edit/{{_id}}"><button>Edit</button></a>
+    <p class="dueDate">{{dueDate}}</p>
+    <h1 class="title">{{title}}</h1>
+    <p class="importance">{{#times importance}}★{{/times}}</p>
+    <span class="finished"><input type="checkbox" disabled {{#if finished}}checked{{/if}}> finished</span>
+    <textarea class="description" disabled>{{description}}</textarea>
+    <a class="edit-input" href="/edit/{{_id}}"><button>Edit</button></a>
 </span>
 {{/each}}
