@@ -15,3 +15,8 @@ a:link, a:visited, .button {
 a:hover, a:active, .button:active, .button:hover {
     background-color: slategray;
 }
+
+a.selected{
+    color: black;
+    background-color: lightgrey;
+}

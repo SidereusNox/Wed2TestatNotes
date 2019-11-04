@@ -2,16 +2,16 @@
     <a href="/create" class="new-item">Create</a>
 
     <div class="toolbar">
-        <a {{#ifEquals sortBy "finish"}} href="/?sortBy=finish&order={{order}}"
+        <a {{#ifEquals sortBy "finish"}} class="selected" href="/?sortBy=finish&order={{order}}"
             {{else}}href="/?sortBy=finish&order=ascending"{{/ifEquals}}>By finish date</a>
-        <a {{#ifEquals sortBy "created"}} href="/?sortBy=created&order={{order}}"
+        <a {{#ifEquals sortBy "created"}} class="selected" href="/?sortBy=created&order={{order}}"
             {{else}}href="/?sortBy=created&order=ascending"{{/ifEquals}}>By created date</a>
-        <a {{#ifEquals sortBy "importance"}} href="/?sortBy=importance&order={{order}}"
+        <a {{#ifEquals sortBy "importance"}} class="selected" href="/?sortBy=importance&order={{order}}"
             {{else}}href="/?sortBy=importance&order=ascending"{{/ifEquals}}>By importance</a>
     </div>
 
-    <a class="theme-switcher" {{#ifEquals theme "dark"}}href="/?theme=light"{{else}}href="/?theme=dark"{{/ifEquals}}>Theme</a>
-    <a class="show-finished" {{#if showFinished}}href="/?showFinished=false"{{else}}href="/?showFinished=true"{{/if}}>Show finished</a>
+    <a class="theme-switcher" {{#ifEquals theme "dark"}}href="/?theme=light"> Light Theme{{else}}href="/?theme=dark">Dark Theme{{/ifEquals}}</a>
+    <a class="show-finished{{#if showFinished}} selected" href="/?showFinished=false"{{else}}" href="/?showFinished=true"{{/if}}>Show finished</a>
 </div>
 {{#each notes}}
 <div class="note-row">
