@@ -1,3 +1,17 @@
 body {
     background-color: darkslategrey;
+    color: white;
+}
+
+a, .button {
+    color: white;
+}
+
+a:link, a:visited, .button {
+    background-color: lightslategray;
+    border-color: white;
+}
+
+a:hover, a:active, .button:active, .button:hover {
+    background-color: slategray;
 }

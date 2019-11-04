@@ -1,34 +1,26 @@
-<form method="POST" {{#if isCreate}}
+<form class="form" method="POST" {{#if isCreate}}
     action="/save"{{else}}
     action="/save/{{note._id}}"{{/if}}>
-    <div>
-        <label for="title">Titel:</label>
-        <input type="text" id="title" name="title" value="{{note.title}}" required>
-    </div>
 
-    <div>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description">{{note.description}}</textarea>
-    </div>
+    <label for="title">Titel:</label>
+    <input type="text" id="title" name="title" value="{{note.title}}" required>
 
-    <div>
-        <label for="importance">Importance:</label>
-        <input type="number" min="1" max="5" id="importance" name="importance" value="{{note.importance}}">
-    </div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description">{{note.description}}</textarea>
 
-    <div>
-        <label for="dueDate">Due to:</label>
-        <input type="date" id="dueDate" name="dueDate" value="{{note.dueDate}}">
-    </div>
+    <label for="importance">Importance:</label>
+    <input type="number" min="1" max="5" id="importance" name="importance" value="{{note.importance}}">
 
-    <div>
-        <label for="finished">Finished:</label>
+    <label for="dueDate">Due to:</label>
+    <input type="date" id="dueDate" name="dueDate" value="{{note.dueDate}}">
+
+    <div class="checkbox-container">
         <input type="checkbox" id="finished" name="finished"{{#if note.finished}}checked{{/if}}>
+        <label for="finished">Finished</label>
     </div>
 
-    <div>
-        <button type="submit">Save</button>
+    <div class="controls">
+        <button class="button" type="submit">Save</button>
+        <a href="/">Cancel</a>
     </div>
 </form>
-
-<a href="/"><button>Cancle</button></a>
